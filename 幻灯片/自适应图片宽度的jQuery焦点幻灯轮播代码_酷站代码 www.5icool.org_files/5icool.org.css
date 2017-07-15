@@ -1,0 +1,15 @@
+@charset "utf-8";
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;text-decoration:none;}
+body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
+/* slide_box */
+#slide_box{width:800px;height:450px;border:4px solid #ccc;border-radius:4px;box-shadow:2px 2px 4px #333;position:absolute;left:0;top:220px;overflow:hidden;}
+#slide_box .slide_img{display:inline-block;white-space:nowrap;height:450px;width:auto;position:absolute;left:0;top:0;}
+#slide_box .slide_img li{display:block;float:left;overflow:hidden;}
+#slide_box .slide_img li img{max-width:800px;}
+#slide_order{text-align:right;padding-right:1em;line-height:20px;position:absolute;right:0;bottom:6px;}
+/*系列号样式*/
+#slide_order a{display:inline-block;padding:0 6px;float:left;margin-right:4px;border:1px solid #ddd;border-radius:4px;box-shadow:1px 1px 2px #333;background:#999;opacity:0.5;filter:alpha(opacity=50);}
+#slide_order a:hover,#slide_order a.current{color:#FFF;font-weight:700;border-color:#000;background-color:#000;}
+
+
