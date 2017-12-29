@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no"/>
+    <title>Document</title>
+    <script type="text/javascript" src="echarts.min.js"></script>
+</head>
+<body>
+<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+<div id="main" style="width: 600px;height:400px;"></div>
+<script>
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+    // 指定图表的配置项和数据
+
+    myChart.title = 'xx记录';
+    option = {
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross',
+                crossStyle: {
+                    color: '#999'
+                },
+            },
+            formatter: '{a0}:{c0}ml<br />{a1}:{c1}%'
+        },
+        toolbox: {
+            feature: {
+                dataView: {show: true, readOnly: false},
+                magicType: {show: true, type: ['line', 'bar']},
+                restore: {show: true},
+                saveAsImage: {show: true}
+            }
+        },
+        legend: {
+            data:['降水量','天晴']
+        },
+        xAxis: [
+            {
+                type: 'category',
+                data: ['20171211','20171212','20171213','20171213','20171213','20171214','20171214','20171214'],
+                axisPointer: {
+                    type: 'shadow'
+                }
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value',
+                name: '降水量',
+                min: 0,
+                max: 10000,
+                interval: 500,
+                axisLabel: {
+                    formatter: '{value} ml'
+                }
+            },
+            {
+                type: 'value',
+                name: '天晴',
+                min: 0,
+                max: 100,
+                interval: 10,
+                axisLabel: {
+                    formatter: '{value} %'
+                }
+            }
+        ],
+        series: [
+            {
+                name:'降水量',
+                type:'bar',
+                itemStyle:{normal:{color:'rgb(0,140,202)'}},
+                data:[100, 2590, 900, 264]
+            },
+            {
+                name:'天晴概率',
+                type:'line',
+                itemStyle:{normal:{color:'green'}},
+                yAxisIndex: 1,
+                smooth:true,
+                showAllSymbol:true,
+                data:[
+                    {value:10,itemStyle: {emphasis:{color:'green',borderWidth:3},normal:{color:'green',borderWidth:3}  }},
+                    {value:50,itemStyle: {emphasis:{color:'red',borderWidth:3},normal:{color:'red',borderWidth:3} }},
+                    {value:30,itemStyle: {emphasis:{color:'green',borderWidth:3},normal:{color:'green',borderWidth:3} }},
+                    {value:30,itemStyle: {emphasis:{color:'green',borderWidth:3},normal:{color:'green',borderWidth:3} }},
+                    {value:30,itemStyle: {emphasis:{color:'green',borderWidth:3},normal:{color:'green',borderWidth:3} }},
+                    {value:40,itemStyle: {emphasis:{color:'pink',borderWidth:3},normal:{color:'pink',borderWidth:3} }},
+                    {value:40,itemStyle: {emphasis:{color:'yellow',borderWidth:4},normal:{color:'yellow',borderWidth:3} }},
+                    {value:40,itemStyle: {emphasis:{color:'black',borderWidth:4},normal:{color:'black',borderWidth:3} }},
+                    {value:80,itemStyle: {emphasis:{color:'orange',borderWidth:3} ,normal:{color:'orange',borderWidth:3}}},
+                ]
+            }
+        ]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+</body>
+</html>
+
