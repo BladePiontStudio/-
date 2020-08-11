@@ -13,5 +13,3 @@ echo $a["k1"];
 $a["k1"] = "c";
 
 unset($a["k2"]);
-
-//zend_hash
